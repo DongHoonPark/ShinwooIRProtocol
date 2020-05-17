@@ -1,6 +1,7 @@
-** 실제 전송은 아래 값 바이너리를 뒤집어서 이루어짐
+** Infrared signal is transmitted in reversed binary form.
+
 ```
-C = Checksum --> 3 ~ 17 번 hex 값 총합
+C = Checksum --> sum of #3 ~ #17 hex value
 U = Turbo 
 O = ON/OF
 I = Timer
@@ -19,16 +20,17 @@ S = Start
 ?   C  C     U     O           I  I  I  T  T  B  W  M  S  S
 ```
 
-찾아야 하는 옵션들
-1. ON/ OFF 필드
+###Options to be figured out
+
+1. ON/ OFF Field
 ```
 ON  : 0x298181000c0005141cc (1)
 OFF : 0x308188000c0005141cc (8)
              v
 ```
---> 6번 
+--> #6 
 
-2. 냉방/ 난방/ 송풍 필드
+2. Mode Field
 
 ```
 Cooling : 0x278181000c0005121cc (1)
@@ -36,9 +38,9 @@ Heating : 0x298181000c0005123cc (3)
 Fan     : 0x2d8181000c0005127cc (7)
                             v
 ```
---> 17번 
+--> #17 
 
-3. 바람세기 필드 (AUTO, TURBO 포함)
+3. Wind Field (AUTO, TURBO 포함)
 
 ```
 Auto : 0x268181000c0005111cc (1)
@@ -46,13 +48,13 @@ Low  : 0x278181000c0005121cc (2)
 Mid  : 0x298181000c0005141cc (4)
 High : 0x2d8181000c0005181cc (8)
                         v
---> 16번
+--> #16
 
 Turbo: 0x348881000c0005181cc
             v
 ```
 
-4. 온도 필드 
+4. Temperature Field 
 
 
 ```
@@ -61,10 +63,10 @@ Turbo: 0x348881000c0005181cc
 7 : 0x2b8181000c0007141cc (07)
 18: 0x2d8181000c0018141cc (18)
                   vv
---> 13, 14번
+--> #13, 14
 ```
 
-5. 타이머 필드
+5. Timer Field
 
 ```
 2 : 0x30818100007805181cc (h'078 -> 120)
@@ -72,7 +74,7 @@ Turbo: 0x348881000c0005181cc
 4 : 0x3081810000f005181cc (h'0F0 -> 240)
 5 : 0x30818100012c05181cc (h'12C -> 300)
                vvv
---> 10, 11, 12번
+--> #10, 11, 12
 ```
 
 6. Blade moving
@@ -81,4 +83,5 @@ Turbo: 0x348881000c0005181cc
 Fixed  : 0x2d8181000c0005181cc (1)
 Moving : 0x2f8181000c0005381cc (3)
                          v
+--> #15
 ```
