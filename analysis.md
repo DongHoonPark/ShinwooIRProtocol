@@ -13,7 +13,7 @@ S = Start
 
 
 ```
-[5C, ON]
+[Turbo OFF, Power ON, Timer unlimited, Temperature 05 celcius, Blade fixed, Wind midium, Cooling mode]
 0x  2  9  8  1  8  1  0  0  0  c  0  0  0  5  1  4  1  c  c
 #   1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
 ?   C  C     U     O           I  I  I  T  T  B  W  M  S  S
