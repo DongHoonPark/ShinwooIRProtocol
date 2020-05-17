@@ -20,7 +20,7 @@ S = Start
 ?   C  C     U     O           I  I  I  T  T  B  W  M  S  S
 ```
 
-###Options to be figured out
+### Options to be figured out
 
 1. ON/ OFF Field
 ```
